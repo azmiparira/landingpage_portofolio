@@ -3,268 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azmi Adi Parira — Portfolio Gateway</title>
+<title>Azmi Adi Parira, S.H. — CV & Portofolio</title>
+<meta name="description" content="Landing page profesional Azmi Adi Parira, S.H. Lihat CV dan portofolio lengkap.">
+
+<!-- Favicon (ikon tab browser) -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy-deep: #0a0e1c;
-    --navy-mid: #121834;
-    --violet: #8b7cf6;
-    --aqua: #4fd8c4;
-    --amber: #f5b878;
-    --ink: #f3f5fa;
-    --ink-dim: rgba(243,245,250,0.62);
-    --glass-fill: rgba(255,255,255,0.06);
-    --glass-border: rgba(255,255,255,0.16);
-  }
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-
-  html,body{height:100%;}
-
-  body{
-    font-family:'Manrope', sans-serif;
-    background: var(--navy-deep);
-    color: var(--ink);
-    min-height:100vh;
-    overflow-x:hidden;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:32px;
-  }
-
-  /* Ambient gradient orbs */
-  .orb{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(90px);
-    opacity:0.55;
-    z-index:0;
-    pointer-events:none;
-  }
-  .orb-1{
-    width:480px;height:480px;
-    background: radial-gradient(circle at 30% 30%, var(--violet), transparent 70%);
-    top:-140px; left:-120px;
-    animation: drift1 22s ease-in-out infinite;
-  }
-  .orb-2{
-    width:420px;height:420px;
-    background: radial-gradient(circle at 60% 40%, var(--aqua), transparent 70%);
-    bottom:-160px; right:-100px;
-    animation: drift2 26s ease-in-out infinite;
-  }
-  .orb-3{
-    width:300px;height:300px;
-    background: radial-gradient(circle at 50% 50%, var(--amber), transparent 72%);
-    top:45%; left:60%;
-    opacity:0.28;
-    animation: drift3 30s ease-in-out infinite;
-  }
-
-  @keyframes drift1{
-    0%,100%{ transform: translate(0,0); }
-    50%{ transform: translate(60px, 40px); }
-  }
-  @keyframes drift2{
-    0%,100%{ transform: translate(0,0); }
-    50%{ transform: translate(-50px, -30px); }
-  }
-  @keyframes drift3{
-    0%,100%{ transform: translate(0,0) scale(1); }
-    50%{ transform: translate(-40px, 30px) scale(1.1); }
-  }
-
-  /* subtle grain/noise overlay for depth */
-  .grain{
-    position:fixed; inset:0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events:none;
-    z-index:1;
-  }
-
-  .card{
-    position:relative;
-    z-index:2;
-    width:100%;
-    max-width:460px;
-    background: var(--glass-fill);
-    border:1px solid var(--glass-border);
-    border-radius:28px;
-    backdrop-filter: blur(28px) saturate(160%);
-    -webkit-backdrop-filter: blur(28px) saturate(160%);
-    box-shadow:
-      0 8px 32px rgba(0,0,0,0.35),
-      inset 0 1px 0 rgba(255,255,255,0.14);
-    padding:52px 40px 44px;
-    text-align:center;
-    animation: rise 0.9s cubic-bezier(0.16,1,0.3,1) both;
-  }
-
-  @keyframes rise{
-    from{ opacity:0; transform: translateY(24px); }
-    to{ opacity:1; transform: translateY(0); }
-  }
-
-  .badge{
-    width:96px;height:96px;
-    margin:0 auto 22px;
-    border-radius:50%;
-    background: linear-gradient(150deg, rgba(139,124,246,0.35), rgba(79,216,196,0.28));
-    border:1px solid var(--glass-border);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Fraunces', serif;
-    font-size:22px;
-    font-weight:500;
-    letter-spacing:0.5px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 4px 18px rgba(139,124,246,0.25);
-    overflow:hidden;
-  }
-
-  .badge img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:50%;
-  }
-
-  .eyebrow{
-    font-size:12px;
-    letter-spacing:2.6px;
-    text-transform:uppercase;
-    color: var(--aqua);
-    font-weight:600;
-    margin-bottom:14px;
-  }
-
-  h1{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:34px;
-    line-height:1.15;
-    letter-spacing:-0.3px;
-    margin-bottom:10px;
-  }
-
-  .role{
-    font-size:15px;
-    color: var(--ink-dim);
-    font-weight:500;
-    margin-bottom:30px;
-  }
-
-  .divider{
-    width:44px;
-    height:1px;
-    margin:0 auto 30px;
-    background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-  }
-
-  .actions{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-
-  .btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    width:100%;
-    padding:16px 20px;
-    border-radius:16px;
-    font-family:'Manrope', sans-serif;
-    font-size:15px;
-    font-weight:600;
-    text-decoration:none;
-    letter-spacing:0.2px;
-    cursor:pointer;
-    border:1px solid transparent;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  }
-
-  .btn svg{ width:17px; height:17px; flex-shrink:0; }
-
-  .btn-primary{
-    color:#0a0e1c;
-    background: linear-gradient(135deg, var(--aqua), var(--violet));
-    box-shadow: 0 8px 24px rgba(139,124,246,0.28);
-  }
-  .btn-primary:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(139,124,246,0.4);
-  }
-
-  .btn-secondary{
-    color: var(--ink);
-    background: rgba(255,255,255,0.05);
-    border-color: var(--glass-border);
-    backdrop-filter: blur(10px);
-  }
-  .btn-secondary:hover{
-    transform: translateY(-2px);
-    background: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.3);
-  }
-
-  .btn:focus-visible{
-    outline:2px solid var(--aqua);
-    outline-offset:3px;
-  }
-
-  footer{
-    margin-top:30px;
-    font-size:11.5px;
-    color: rgba(243,245,250,0.4);
-    letter-spacing:0.4px;
-  }
-
-  @media (max-width:480px){
-    .card{ padding:42px 26px 36px; border-radius:22px; }
-    h1{ font-size:28px; }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .orb, .card{ animation:none !important; }
-    .btn{ transition:none; }
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="grain"></div>
+  <!-- Background aurora blobs (animated) -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <main class="card">
-    <div class="badge" id="badge">
-      <img src="foto.jpg" alt="Foto Azmi Adi Parira"
-        onerror="this.style.display='none'; this.parentElement.textContent='AAP';">
+  <!-- Floating particles, generated by JS -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <nav class="navbar">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-dot"></span> Azmi Adi Parira, S.H.
+    </a>
+    <div class="nav-links">
+      <a href="#about">Tentang</a>
+      <a href="#contact">Kontak</a>
     </div>
-    <p class="eyebrow">Welcome</p>
-    <h1>Azmi Adi Parira</h1>
-    <p class="role">Portfolio &amp; Curriculum Vitae</p>
-    <div class="divider"></div>
+  </nav>
 
-    <div class="actions">
-      <a class="btn btn-primary" id="portfolio-link" href="https://canva.link/s5382cpeb37hfz0" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-        Lihat Portofolio
-      </a>
-      <a class="btn btn-secondary" id="cv-link" href="https://drive.google.com/file/d/1evr9wfx6koWJk7Xa_vNw_eW1ec1Zce9j/view" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-        Unduh CV
-      </a>
-    </div>
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero-inner">
 
-    <footer>© 2026 Azmi Adi Parira</footer>
+        <div class="hero-text reveal">
+          <p class="eyebrow">— Halo, perkenalkan saya</p>
+          <h1 class="hero-name">Azmi Adi<br><span>Parira, S.H.</span></h1>
+          <p class="hero-tagline">
+            Sarjana Hukum Ekonomi Syariah, Cumlaude, dengan fokus pada corporate legal &amp; compliance,
+            perbankan syariah, dan digital marketing. Yuk lihat perjalanan dan karya saya lebih dekat.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://drive.google.com/file/d/1evr9wfx6koWJk7Xa_vNw_eW1ec1Zce9j/view" target="_blank" rel="noopener noreferrer">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M14 2v6h6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M12 11v6M12 17l-2.5-2.5M12 17l2.5-2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Lihat CV
+            </a>
+            <a class="btn btn-secondary" href="https://canva.link/s5382cpeb37hfz0" target="_blank" rel="noopener noreferrer">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="14" y="3" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="3" y="14" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+                <rect x="14" y="14" width="7" height="7" rx="1.2" stroke="currentColor" stroke-width="1.6"/>
+              </svg>
+              Lihat Portofolio
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span class="meta-pill"><span class="pulse-dot"></span> GET IN TOUCH !!!</span>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap reveal reveal-delay">
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          <span class="orbit-dot"></span>
+
+          <div class="glass-photo-frame" id="tiltCard">
+            <div class="glass-photo-inner">
+              <!-- GANTI file ini dengan foto formal 1:1 (JPG) milikmu -->
+              <img src="assets/foto-formal.jpg" alt="Foto formal Azmi Adi Parira, S.H." class="hero-photo" id="heroPhoto">
+            </div>
+            <div class="frame-shine"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="glass-card about-card reveal">
+        <p class="section-eyebrow">Tentang Saya</p>
+        <h2 class="about-title">Sedikit cerita tentang perjalanan saya</h2>
+        <p class="about-text">
+          Saya Azmi Adi Parira, S.H. - Sarjana Hukum dari Jurusan Hukum Ekonomi Syariah UIN Sunan Gunung Djati Bandung
+          dengan predikat Cumlaude (IPK 3,75/4,00). Fokus keahlian saya ada di corporate legal &amp;
+          compliance, perancangan kontrak, dan pemodelan keuangan syariah, yang telah saya buktikan
+          lewat berbagai proyek mandiri maupun akademik - mulai dari aplikasi Web-GIS pemetaan pasar
+          perbankan syariah, dasbor kepatuhan APU-PPT, hingga membuat 30+ dokumen contract drafting. Pengalaman
+          magang di Pengadilan Agama Sukabumi dan KUA Cidahu turut mengasah ketelitian saya, dan saya
+          meraih penghargaan Best Presenter pada ICoShEL 2024. Di luar bidang hukum, saya juga aktif
+          di Digital Marketing dan Desain Grafis dengan 400+ proyek terselesaikan. CV dan portofolio
+          di atas merangkum semuanya secara lengkap — jangan ragu menghubungi saya bila tertarik
+          berdiskusi lebih lanjut.
+        </p>
+        <div class="chip-row">
+          <span class="chip">Corporate Legal &amp; Compliance</span>
+          <span class="chip">Sharia Banking</span>
+          <span class="chip">Digital Marketing</span>
+          <span class="chip">Graphic Design</span>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- ============ FOOTER / CONTACT ============ -->
+  <footer id="contact">
+    <div class="glass-card footer-card reveal">
+      <h3>Mari terhubung</h3>
+      <p>Tertarik untuk berdiskusi lebih lanjut? Lihat CV atau portofolio saya di atas, atau hubungi saya langsung.</p>
+      <div class="hero-actions footer-actions">
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1evr9wfx6koWJk7Xa_vNw_eW1ec1Zce9j/view" target="_blank" rel="noopener noreferrer">Lihat CV</a>
+        <a class="btn btn-secondary" href="https://canva.link/s5382cpeb37hfz0" target="_blank" rel="noopener noreferrer">Lihat Portofolio</a>
+      </div>
+    </div>
+    <p class="copyright">&copy; <span id="year"></span> Azmi Adi Parira, S.H.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
