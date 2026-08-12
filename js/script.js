@@ -29,8 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Floating particles ----
   const particlesWrap = document.getElementById('particles');
-  if (particlesWrap && !prefersReducedMotion) {
-    const PARTICLE_COUNT = 24;
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
+  if (particlesWrap && !prefersReducedMotion && !isSmallScreen) {
+    const PARTICLE_COUNT = 8;
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const p = document.createElement('span');
       p.className = 'particle';
