@@ -75,23 +75,20 @@ button:focus-visible{
 .blob{
   position: absolute;
   border-radius: 50%;
-  filter: blur(90px);
+  filter: blur(60px);
   opacity: 0.45;
-  will-change: transform;
 }
 
 .blob-1{
   width: 480px; height: 480px;
   background: var(--violet);
   top: -120px; left: -100px;
-  animation: drift1 22s ease-in-out infinite alternate;
 }
 
 .blob-2{
   width: 420px; height: 420px;
   background: var(--teal);
   bottom: -140px; right: -80px;
-  animation: drift2 26s ease-in-out infinite alternate;
 }
 
 .blob-3{
@@ -99,20 +96,6 @@ button:focus-visible{
   background: var(--pink);
   top: 40%; left: 55%;
   opacity: 0.28;
-  animation: drift3 30s ease-in-out infinite alternate;
-}
-
-@keyframes drift1{
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(80px, 60px) scale(1.15); }
-}
-@keyframes drift2{
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-60px, -70px) scale(1.1); }
-}
-@keyframes drift3{
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-100px, 50px) scale(1.2); }
 }
 
 .grain{
@@ -250,13 +233,6 @@ button:focus-visible{
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  background-size: 200% auto;
-  animation: gradientShift 8s ease-in-out infinite;
-}
-
-@keyframes gradientShift{
-  0%, 100%{ background-position: 0% center; }
-  50%{ background-position: 100% center; }
 }
 
 .hero-tagline{
@@ -342,14 +318,12 @@ button:focus-visible{
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--teal);
-  box-shadow: 0 0 0 rgba(69,224,196,0.6);
-  animation: pulse 2s infinite;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse{
-  0%{ box-shadow: 0 0 0 0 rgba(69,224,196,0.55); }
-  70%{ box-shadow: 0 0 0 9px rgba(69,224,196,0); }
-  100%{ box-shadow: 0 0 0 0 rgba(69,224,196,0); }
+  0%, 100%{ opacity: 1; }
+  50%{ opacity: 0.35; }
 }
 
 /* --- photo --- */
